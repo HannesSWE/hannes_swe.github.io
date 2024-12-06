@@ -174,11 +174,13 @@
         .tab:hover {
             background: linear-gradient(100deg, #df1515, #FFC300, #fdfd00, #2efd00, #0095fd, #8a00fd);
 			color: black;
+            color: black;
         }
         .tab-content {
             display: none;
             padding: 20px;
             background: transparent; /* Transparent bakgrund */
+            background: transparent;
             border-radius: 0 0 15px 15px;
         }
 
@@ -247,13 +249,12 @@
         <section id="contact">
             <h2>Kontakt</h2>
             <p>Du kan nå mig via e-post på: <a href="mailto:hampalamp3619@gmail.com">hampalamp3619@gmail.com</a></p>
-            <p>Du kan också nå mig på TikTok: <a href="https://www.tiktok.com/@hampalamp3619" target="_blank">hampalamp3619</a></p>
+            <p>Du kan också nå mig på TikTok: <a href="https://www.tiktok.com/@hannes_swe" target="_blank">@hannes_swe</a></p>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 Hannes Sörhäll.</p>
-		<p>Om du heter Anton Säterdal så är du pro 😎</p>
+        <p>&copy; 2024 Hannes Sörhäll. Om du heter Anton Säterdal så är du pro 😎</p>
 		<p>GOMORRON</p>
     </footer>
 
@@ -291,6 +292,64 @@
                 document.querySelector('.scroll-to-top').style.display = "none";
             }
         };
+        // Tab-funktionalitet
+        function showTab(tabId) {
+            let tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            let activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+
+            // Ändra knappens aktiva stil
+            let tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(function(button) {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Scroll-to-top-knapp
+        window.onscroll = function() {
+            let button = document.querySelector('.scroll-to-top');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Minigame-funktionalitet
+        let score = 0;
+        let gameButton = document.getElementById('gameButton');
+        let scoreDisplay = document.getElementById('score');
+
+		gameButton.addEventListener('click', function() {
+		score++;
+		scoreDisplay.textContent = score;
+
+    // Hämta bredd och höjd på knappen
+		let buttonWidth = gameButton.offsetWidth;
+		let buttonHeight = gameButton.offsetHeight;
+
+    // Beräkna slumpmässiga positioner för knappen
+		let x = Math.floor(Math.random() * (window.innerWidth - buttonWidth));
+		let y = Math.floor(Math.random() * (window.innerHeight - buttonHeight));
+
+    // Se till att knappen inte går under footern
+		if (y > window.innerHeight - 100) {
+        y = window.innerHeight - 100 - buttonHeight;
+    }
+
+    // Placera knappen på den nya positionen
+		gameButton.style.position = 'absolute';
+		gameButton.style.left = x + 'px';
+		gameButton.style.top = y + 'px';
+});
     </script>
 </body>
 </html>
