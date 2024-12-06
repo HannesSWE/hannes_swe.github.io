@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannes lilla hemsida 😎</title>
+    <style>
+        /* Allmän stil */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(100deg, #df1515, #FFC300, #fdfd00, #2efd00, #0095fd, #8a00fd);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        header h1 {
+            font-size: 3em;
+            animation: wobble 1.5s infinite ease-in-out;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            15% { transform: rotate(3deg); }
+            30% { transform: rotate(-3deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        /* Navigering */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Sektioner */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: sectionFadeIn 1s forwards;
+        }
+
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section h2 {
+            font-size: 2em;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        section p {
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-radius: 25px 25px 0 0;
+        }
+
+        /* Scroll-to-top-knapp */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #df1515, #FFC300, #fdfd00, #2efd00, #0095fd, #8a00fd);
+            color: black;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .scroll-to-top:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsiv design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            section {
+                padding: 40px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            nav a {
+                font-size: 0.8em;
+                margin: 0 5px;
+            }
+        }
+
+        /* Flikar */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .tab {
+            background: #555;
+            padding: 10px 20px;
+            border-radius: 10px 10px 10px 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: white;
+        }
+        .tab:hover {
+            background: linear-gradient(100deg, #df1515, #FFC300, #fdfd00, #2efd00, #0095fd, #8a00fd);
+            color: black;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: transparent; /* Transparent bakgrund */
+            background: transparent;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Minigame stil */
+        .game-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .game-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #0095fd;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .game-button:hover {
+            background-color: #ff7eb3;
+        }
+        .score {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hannes lilla hemsida 😎</h1>
+        <p>Välkommen till Hannes personliga lilla hemsida!</p>
+    </header>
+
+    <div class="tab-container">
+        <div class="tab active" onclick="showTab('about-tab')">Om mig</div>
+        <div class="tab" onclick="showTab('skills-tab')">Färdigheter</div>
+        <div class="tab" onclick="showTab('game-tab')">Minigame</div>
+        <div class="tab" onclick="showTab('contact-tab')">Kontakt</div>
+    </div>
+
+    <!-- Sektioner som flikar -->
+    <div id="about-tab" class="tab-content active">
+        <section id="about">
+            <h2>Om mig</h2>
+            <p>Hej! Jag heter Hannes och jag älskar att säga GOMORRON och koda hemsidor.</p>
+        </section>
+    </div>
+    <div id="skills-tab" class="tab-content">
+        <section id="skills">
+            <h2>Färdigheter</h2>
+            <p>Jag kan koda i HTML, CSS och JS 👍</p>
+        </section>
+    </div>
+    <div id="game-tab" class="tab-content">
+        <section id="game" class="game-container">
+            <h2>Minigame</h2>
+            <button class="game-button" id="gameButton" onclick="moveButton()">Klicka här!</button>
+            <div class="score" id="score"></div>
+        </section>
+    </div>
+    <div id="contact-tab" class="tab-content">
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <p>Följ mig på sociala medier! <br>
+            <a href="https://instagram.com" target="_blank">Instagram</a> | <a href="https://tiktok.com" target="_blank">TikTok</a> | <a href="https://paypal.com" target="_blank">PayPal</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hannes hemsida</p>
+    </footer>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab:contains('${tabId.replace('-tab', '').replace('-', ' ')}')`).classList.add('active');
+        }
+
+        function moveButton() {
+            const gameButton = document.getElementById('gameButton');
+            const x = Math.random() * (window.innerWidth - gameButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - gameButton.offsetHeight - 100); 
+            gameButton.style.left = `${x}px`;
+            gameButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
