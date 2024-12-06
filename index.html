@@ -31,45 +31,43 @@
         }
         header h1 {
             font-size: 3em;
-            animation: wobble 1s infinite;
+            animation: wobble 1.5s infinite ease-in-out;
         }
         header p {
             font-size: 1.2em;
+            margin-top: 10px;
         }
 
         @keyframes wobble {
             0%, 100% { transform: rotate(0deg); }
-            15% { transform: rotate(5deg); }
-            30% { transform: rotate(-5deg); }
-            45% { transform: rotate(3deg); }
-            60% { transform: rotate(-3deg); }
-            75% { transform: rotate(1deg); }
+            15% { transform: rotate(3deg); }
+            30% { transform: rotate(-3deg); }
+            50% { transform: rotate(2deg); }
         }
 
         /* Navigering */
         nav {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 15px 0;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: background 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 1em;
-            transition: transform 0.3s ease, color 0.3s, background 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
         nav a:hover {
-            color: #ff7eb3;
-            transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
 
         /* Sektioner */
@@ -79,8 +77,8 @@
             background: rgba(255, 255, 255, 0.9);
             margin: 20px auto;
             max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             opacity: 0;
             transform: translateY(30px);
             animation: sectionFadeIn 1s forwards;
@@ -98,12 +96,18 @@
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
 
+        section p {
+            margin-top: 15px;
+        }
+
         /* Footer */
         footer {
             background: #333;
             color: white;
             text-align: center;
             padding: 20px 0;
+            margin-top: 20px;
+            border-radius: 25px 25px 0 0;
         }
 
         /* Scroll-to-top-knapp */
@@ -111,7 +115,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(1000deg, #df1515, #FFC300, #fdfd00, #2efd00, #0095fd, #8a00fd);
+            background: linear-gradient(45deg, #df1515, #FFC300, #fdfd00, #2efd00, #0095fd, #8a00fd);
             color: black;
             border: none;
             border-radius: 50%;
@@ -123,20 +127,17 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             display: none;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .scroll-to-top:hover {
             transform: scale(1.2);
-            background: linear-gradient(2000deg, #8a00fd, #0095fd, #2efd00, #fdfd00);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Responsiv design */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5em;
-            }
-            header p {
-                font-size: 1em;
             }
             section {
                 padding: 40px 10px;
@@ -152,6 +153,61 @@
                 margin: 0 5px;
             }
         }
+
+        /* Flikar */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .tab {
+            background: #555;
+            padding: 10px 20px;
+            border-radius: 10px 10px 10px 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: white;
+        }
+        .tab:hover {
+            background: linear-gradient(100deg, #df1515, #FFC300, #fdfd00, #2efd00, #0095fd, #8a00fd);
+			color: black;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: transparent; /* Transparent bakgrund */
+            border-radius: 0 0 15px 15px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Minigame stil */
+        .game-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .game-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #0095fd;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .game-button:hover {
+            background-color: #ff7eb3;
+        }
+        .score {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -159,39 +215,82 @@
         <h1>Hannes lilla hemsida 😎</h1>
         <p>Välkommen till Hannes personliga lilla hemsida!</p>
     </header>
-    <nav>
-        <a href="#about">Om mig</a>
-        <a href="#skills">Färdigheter</a>
-        <a href="#projects">Projekt</a>
-        <a href="#contact">Kontakt</a>
-    </nav>
-    <section id="about">
-        <h2>Om mig</h2>
-        <p>Hej! Jag heter Hannes och jag älskar att säga GOMORRON och koda hemsidor.</p>
-    </section>
-    <section id="skills">
-        <h2>Färdigheter</h2>
-        <p>Jag kan koda i HTML, CSS och JS 👍</p>
-    </section>
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Du kan nå mig via e-post på: <a href="mailto:hampalamp3619@gmail.com">hampalamp3619@gmail.com</a></p>
-        <p>Du kan också nå mig på TikTok: <a href="https://www.tiktok.com/@hannes_Swe" target="_blank">TikTok</a></p>
-    </section>
+
+    <div class="tab-container">
+        <div class="tab active" onclick="showTab('about-tab')">Om mig</div>
+        <div class="tab" onclick="showTab('skills-tab')">Färdigheter</div>
+        <div class="tab" onclick="showTab('game-tab')">Minigame</div>
+        <div class="tab" onclick="showTab('contact-tab')">Kontakt</div>
+    </div>
+
+    <!-- Sektioner som flikar -->
+    <div id="about-tab" class="tab-content active">
+        <section id="about">
+            <h2>Om mig</h2>
+            <p>Hej! Jag heter Hannes och jag älskar att säga GOMORRON och koda hemsidor.</p>
+        </section>
+    </div>
+    <div id="skills-tab" class="tab-content">
+        <section id="skills">
+            <h2>Färdigheter</h2>
+            <p>Jag kan koda i HTML, CSS och JS 👍</p>
+        </section>
+    </div>
+    <div id="game-tab" class="tab-content">
+        <section id="game" class="game-container">
+            <h2>Minigame</h2>
+            <button class="game-button" id="gameButton">Klicka på mig!</button>
+            <p class="score">Poäng: <span id="score">0</span></p>
+        </section>
+    </div>
+    <div id="contact-tab" class="tab-content">
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <p>Du kan nå mig via e-post på: <a href="mailto:hampalamp3619@gmail.com">hampalamp3619@gmail.com</a></p>
+            <p>Du kan också nå mig på TikTok: <a href="https://www.tiktok.com/@hampalamp3619" target="_blank">hampalamp3619</a></p>
+        </section>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Hannes Sörhäll. Om du heter Anton Säterdal så är du pro 😎</p>
-        <p>GOMORRON</p>
+        <p>&copy; 2024 Hannes Sörhäll.</p>
+		<p>Om du heter Anton Säterdal så är du pro 😎</p>
+		<p>GOMORRON</p>
     </footer>
-    <button class="scroll-to-top" id="scrollToTopBtn">⇑</button>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
     <script>
-        // Scroll-to-top-knapp
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-        window.addEventListener("scroll", () => {
-            scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-        });
-        scrollToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
+        // Funktion för att visa tabbar
+        function showTab(tabId) {
+            let tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+
+            let tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Funktion för att scrolla till toppen
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Minigame funktionalitet
+        let score = 0;
+        document.getElementById('gameButton').onclick = function() {
+            score++;
+            document.getElementById('score').textContent = score;
+        };
+
+        // Visa scroll-to-top-knappen vid scrollning
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.querySelector('.scroll-to-top').style.display = "block";
+            } else {
+                document.querySelector('.scroll-to-top').style.display = "none";
+            }
+        };
     </script>
 </body>
 </html>
