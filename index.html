@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannes lilla hemsida 😎</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: linear-gradient(45deg, #ff0080, #8000ff, #00b3ff, #00ff44, #ffcc00);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+        }
+        header h1 {
+            font-size: 4em;
+            animation: bounce 2s infinite ease-in-out;
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-weight: 300;
+			color: white;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            color: black;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+			color: black:
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px auto;
+            max-width: 850px;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: sectionFadeIn 1.5s forwards;
+        }
+
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        section p {
+            margin-top: 15px;
+            font-size: 1.2em;
+			color: black;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            border-radius: 25px 25px 0 0;
+        }
+
+        /* Scroll-to-top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff0080, #8000ff, #00b3ff);
+            color: black;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5em;
+            line-height: 60px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+        .scroll-to-top:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: black;
+            font-size: 1.5em;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Buttons */
+        .game-button {
+		padding: 15px 30px;
+		font-size: 1.2em;
+		border: none
+		background-color: #0095fd;
+		color: white;
+		border-radius: 10px;
+		cursor: pointer;
+		transition: background-color 0.3s;
+		position: fixed; /* Ändrat från absolute till fixed */
+		z-index: 99999; /* Högre z-index för säkerhet */
+	}
+
+        .game-button:hover {
+            background-color: #ff7eb3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3em;
+            }
+            section {
+                padding: 40px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            nav a {
+                font-size: 1em;
+                margin: 0 10px;
+				color: white;
+            }
+            section {
+                padding: 30px 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hannes lilla hemsida 😎</h1>
+        <p>Välkommen till Hannes personliga lilla hemsida!</p>
+    </header>
+
+    <nav>
+        <a href="#about">Om mig</a>
+        <a href="#skills">Färdigheter</a>
+        <a href="#game">Minigame</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+
+    <section id="about">
+        <h2>Om mig</h2>
+        <p>Hej! Jag heter Hannes och jag älskar att säga GOMORRON och koda hemsidor.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Färdigheter</h2>
+        <p>Jag kan koda i HTML, CSS och JavaScript 👍</p>
+    </section>
+
+    <section id="game">
+        <h2>Minigame</h2>
+        <button class="game-button" onclick="moveButton()">Klicka här!</button>
+        <div class="score" id="score">Poäng: 0</div>
+    </section>
+
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Följ mig på TikTok eller skicka en liten slant till min PayPal!</p>
+        <div class="social-links">
+            <a href="https://www.paypal.com/paypalme/HannesSWE" target="_blank">PayPal</a>
+            <a href="https://tiktok.com/@hannes_swe" target="_blank">TikTok</a>
+        </div>
+    </section>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <footer>
+        <p>&copy; 2024 Hannes Sörhäll. Om du heter Anton Säterdal så är du pro 😎</p>
+    </footer>
+
+    <script>
+        let score = 0;
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function moveButton() {
+            const gameButton = document.querySelector('.game-button');
+            const maxX = window.innerWidth - gameButton.offsetWidth;
+            const maxY = window.innerHeight - gameButton.offsetHeight - 100;
+
+            const x = Math.max(0, Math.random() * maxX);
+            const y = Math.max(0, Math.random() * maxY);
+
+            gameButton.style.left = `${x}px`;
+            gameButton.style.top = `${y}px`;
+
+            // Uppdatera poäng
+            score++;
+            document.getElementById('score').innerText = `Poäng: ${score}`;
+        }
+    </script>
+
+</body>
+</html>
